@@ -6,6 +6,6 @@ const employeeSchema = new mongoose.Schema({
     isManager: Boolean
 });
 
-const kitten = mongoose.model('Employee', employeeSchema);
+const Employee = mongoose.model('Employee', employeeSchema);
 
-export default Employees = mongoose.model('Employess')
+module.exports = Employee 
