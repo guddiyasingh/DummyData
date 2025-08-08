@@ -1,4 +1,4 @@
-const employeeSchema = new mongoose.Schema({
+const employessSchema = new mongoose.Schema({
     name: String,
     salary: Number,
     language:String,
@@ -6,6 +6,6 @@ const employeeSchema = new mongoose.Schema({
     isManager: Boolean
 });
 
-const Employee = mongoose.model('Employee', employeeSchema);
+const Employess = mongoose.model('Employess', employessSchema);
 
-module.exports = Employee 
+module.exports = Employess

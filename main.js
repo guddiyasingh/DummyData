@@ -2,9 +2,9 @@ const express = require('express')
 
 const app = express()
 const mongoose = require('mongoose');
-const Employee = require('./models/Employees');
+const Employess = require('./models/Employess');
 
-await mongoose.connect('mongodb://127.0.0.1:27017/company');
+ mongoose.connect('mongodb://127.0.0.1:27017/company');
 const port = 3000
 
 app.set('view engine', 'ejs');
@@ -14,13 +14,19 @@ app.get('/', (req, res) => {
   res.render('index', {foo: 'FOO'});
 })
 
-app.get('/generate', (req, res) => {
+app.get('/generate', async (req, res) => {
   // Generate random data
-  for (let i = 0; i < 100; i++) {
-    let e = Employee.create
-    
+  for (let i = 0; i < 10; i++) {
+    let e = await  Employess.create({
+       name: String,
+    salary: Number,
+    language:String,
+    city: String,
+    isManager: Boolean
+    })
+    // await e.save()
     }
-  res.render('index',{foo: 'FOO'});
+   res.render('index',{foo: 'FOO'});
 })
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
